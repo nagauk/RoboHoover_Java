@@ -1,0 +1,28 @@
+server:
+  port: 8185
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
+    username: admin
+
+   #As best practices we should not provide password in text format in properties file. best
+   #approach would be provide encrypted password. below is the solution.
+
+    ###By using Jasypt, we can provide encryption for the property file attributes and
+    ###our application will do the job of decrypting it and retrieving the original value.
+
+    ###All encrypted values need to be place in different property file and those values can be decrypt while application context is loading.
+    ###encrypted.property=ENC(eRADkuihis231231+asdfaSAFASAS+8)
+
+    ##Ref: http://www.jasypt.org/
+    password:
+
+  data:
+    mongodb:
+      database: yoti_demo
+      host: localhost
+      port: 27017
+
+
